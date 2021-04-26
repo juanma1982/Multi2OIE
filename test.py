@@ -1,5 +1,5 @@
 import argparse
-import os
+import os, sys
 import time
 import torch
 from utils import utils
@@ -10,7 +10,12 @@ from evaluate.matcher import Matcher
 from evaluate.generalReader import GeneralReader
 from carb.carb import Benchmark as CarbBenchmark
 from carb.matcher import Matcher as CarbMatcher
-from carb.tabReader import TabReader
+
+currentdir = os.path.dirname(os.path.realpath(__file__))
+oie_readers_dir = currentdir + '/carb/oie_readers'
+print(oie_readers_dir)
+sys.path.append(oie_readers_dir)
+from tabReader import TabReader
 
 
 def get_performance(output_path, gold_path):
@@ -41,6 +46,7 @@ def get_performance(output_path, gold_path):
             matchingFunc=matching_func,
             output_fn=os.path.join(output_path, 'pr_curve.txt'),
             error_file=error_fn)
+    
     return auc, precision, recall, f1
 
 

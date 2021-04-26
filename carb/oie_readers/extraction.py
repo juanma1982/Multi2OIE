@@ -1,5 +1,5 @@
 from sklearn.preprocessing.data import binarize
-from oie_readers.argument import Argument
+from argument import Argument
 from operator import itemgetter
 from collections import defaultdict
 import nltk
