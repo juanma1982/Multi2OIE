@@ -66,6 +66,8 @@ def main(args):
             dev_result = do_eval(output_path, dev_gold)
             utils.print_results(f"EPOCH{epoch} EVAL",
                                 dev_result, ["F1  ", "PREC", "REC ", "AUC "])
+            print("\Saving model until now\n")
+            torch.save(model.state_dict(), os.path.join(args.save_path, model_name))
             total_sum += dev_result[0] + dev_result[-1]
             dev_result.append(dev_result[0] + dev_result[-1])
             dev_results += dev_result
