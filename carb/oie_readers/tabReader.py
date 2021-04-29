@@ -33,7 +33,10 @@ class TabReader(OieReader):
                 if not line.strip():
                     continue
                 data = line.strip().split('\t')
-                text, confidence, rel = data[:3]
+                try:
+                    text, confidence, rel = data[:3]
+                except:
+                    continue                
                 curExtraction = Extraction(pred = rel,
                                            head_pred_index = None,
                                            sent = text,

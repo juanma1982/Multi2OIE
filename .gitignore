@@ -1,0 +1,14 @@
+__pycache__/*
+carb/__pycache__/*
+carb/oie_readers/__pycache__/
+evaluate/__pycache__/*
+evaluate/__pycache__/evaluate.cpython-38.pyc
+evaluate/__pycache__/extraction.cpython-38.pyc
+evaluate/__pycache__/generalReader.cpython-38.pyc
+evaluate/__pycache__/goldReader.cpython-38.pyc
+evaluate/__pycache__/gold_relabel.cpython-38.pyc
+evaluate/__pycache__/matcher.cpython-38.pyc
+evaluate/__pycache__/oieReader.cpython-38.pyc
+jmrTesting.py
+utils/__pycache__/*
+localresults/*
