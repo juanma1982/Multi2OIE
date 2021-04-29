@@ -64,9 +64,12 @@ def main(args):
             output_path = os.path.join(args.save_path, f'epoch{epoch}_dev/end_epoch/{dev_name}')
             extract(args, model, dev_loader, output_path)
             dev_result = do_eval(output_path, dev_gold)
-            utils.print_results(f"EPOCH{epoch} EVAL",
-                                dev_result, ["F1  ", "PREC", "REC ", "AUC "])
-            print("\Saving model until now\n")
+            try:
+                utils.print_results(f"EPOCH{epoch} EVAL",
+                                            dev_result, ["F1  ", "PREC", "REC ", "AUC "])
+            except:
+                print(" An exception occurred executing: print_results ")
+            print("\Saving model so far\n")
             torch.save(model.state_dict(), os.path.join(args.save_path, model_name))
             total_sum += dev_result[0] + dev_result[-1]
             dev_result.append(dev_result[0] + dev_result[-1])
