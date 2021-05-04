@@ -49,7 +49,7 @@ def main(args):
     model.zero_grad()
     summarizer = SummaryManager(args)
     print("\nTraining Starts\n")
-
+    print("\ntotal_steps: \n"+total_steps)
     for epoch in tqdm(range(1, args.epochs + 1), desc='epochs'):
         trn_results = train(
             args, epoch, model, trn_loader, dev_loaders,
@@ -69,8 +69,6 @@ def main(args):
                                             dev_result, ["F1  ", "PREC", "REC ", "AUC "])
             except:
                 print(" An exception occurred executing: print_results ")
-            print("\Saving model so far\n")
-            torch.save(model.state_dict(), os.path.join(args.save_path, model_name))
             total_sum += dev_result[0] + dev_result[-1]
             dev_result.append(dev_result[0] + dev_result[-1])
             dev_results += dev_result

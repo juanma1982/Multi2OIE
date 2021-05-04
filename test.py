@@ -104,6 +104,7 @@ if __name__ == '__main__':
     main_args.pred_n_labels = 3
     main_args.arg_n_labels = 9
     device = torch.device(main_args.device if torch.cuda.is_available() else 'cpu')
+    print("DEVICE: "+device)
     main_args.device = device
     main(main_args)
 
