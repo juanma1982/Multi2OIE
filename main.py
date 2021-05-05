@@ -49,7 +49,7 @@ def main(args):
     model.zero_grad()
     summarizer = SummaryManager(args)
     print("\nTraining Starts\n")
-    print("\ntotal_steps: \n"+total_steps)
+
     for epoch in tqdm(range(1, args.epochs + 1), desc='epochs'):
         trn_results = train(
             args, epoch, model, trn_loader, dev_loaders,
