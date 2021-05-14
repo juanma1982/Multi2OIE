@@ -66,7 +66,11 @@ def main(args):
         pos_emb_dim=args.pos_emb_dim,
         use_lstm=args.use_lstm,
         device=args.device)
-    model.load_state_dict(torch.load(args.model_path))
+    if torch.cuda.is_available():
+        map_location=lambda storage, loc: storage.cuda()
+    else:
+        map_location='cpu'    
+    model.load_state_dict(torch.load(args.model_path, map_location=map_location))
     model.zero_grad()
     model.eval()
 
@@ -104,7 +108,7 @@ if __name__ == '__main__':
     main_args.pred_n_labels = 3
     main_args.arg_n_labels = 9
     device = torch.device(main_args.device if torch.cuda.is_available() else 'cpu')
-    print("DEVICE: "+device)
+    print("DEVICE: "+main_args.device)
     main_args.device = device
     main(main_args)
 

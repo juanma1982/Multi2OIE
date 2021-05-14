@@ -12,17 +12,14 @@ evaluate/__pycache__/oieReader.cpython-38.pyc
 jmrTesting.py
 utils/__pycache__/*
 localresults/*
+.vscode/
+Results of training.txt
+datasets/__pycache__/
+datasets/re_oie2016_test_spanish.json
+datasets/spanish_corpus_testset_gamulla.json
+datasets/spanish_corpus_testset_gamulla.pkl
+datasets/spanish_corpus_testset_rodriguez.json
+datasets/spanish_corpus_testset_rodriguez.pkl
+old results/
+results/
 
-count by (job,region,sourceSystem,destinationSystem) (lexi_failed_mirf_alert{tenantCode="${tenant}",envId="${envId}"})
-
-{{job}}({{region}} - {{sourceSystem}}, {{destinationSystem}})
-
-
-ackermannal@gmail.com
-apayaslian@fi.uba.ar
-fmazzoni@fi.uba.ar
-ma.markosich@gmail.com
-lolguin@fi.uba.ar
-chflorez@fi.uba.ar
-ffusaro@fi.uba.ar
-nacho.maness@gmail.com
