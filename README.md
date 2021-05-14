@@ -69,13 +69,10 @@ conda activate multi2oie
 pip install -r requirements.txt
 ~~~~
 
-
-
-
 ### Datasets
 
 Original data file (bootstrapped sample from OpenIE4; used in SpanOIE) can be downloaded from [here](https://drive.google.com/file/d/1AEfwbh3BQnsv2VM977cS4tEoldrayKB6/view).
-Following download, put the downloaded data in './datasets' and use preprocess.py to convert the data into the format suitable for Multi^2OIE.
+Following download, put the downloaded data in './datasets' and use preprocess.py to convert the data into the format suitable for Multi^2OIE. See below: 
 
 ~~~~
 cd utils
@@ -89,12 +86,17 @@ python preprocess.py \
 
 For multilingual training data, set **'bert_config'** as **'bert-base-multilingual-cased'**. 
 
-
-
+### download stopwords from nltk
+Open Python 3 console
+~~~~
+import nltk
+nltk.download('stopwords')
+~~~~
 
 ### Run the Code
 
 We used TITAN RTX GPU for training, and the use of other GPU can make the final performance different.
+ALso it could be trained in Google colab.
 
 ##### for training,
 
@@ -169,3 +171,12 @@ python test.py [--FLAGS]
 - https://github.com/gabrielStanovsky/oie-benchmark
 - https://github.com/dair-iitd/CaRB
 - https://github.com/zhanjunlang/Span_OIE
+
+## Run with other datasets:
+
+1. create a json file with an array of sentences
+2. Use datasets/pickleCreator.py to convert the JSON file into pickle file
+3. Execute test.py with test_data_path to the picke file:
+~~~~
+python3 test.py --test_data_path ./datasets/spanish_corpus_testset_rodriguez.pkl
+~~~~
