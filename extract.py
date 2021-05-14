@@ -63,15 +63,15 @@ def extract(args,
                 cur_extractions, cur_extraction_idxs = bio.get_tuple(sentence, cur_pred_tags, cur_arg_tags, tokenizer)
                 cur_confidences = bio.get_confidence_score(cur_pred_probs, cur_arg_probs, cur_extraction_idxs)
                 for extraction, confidence in zip(cur_extractions, cur_confidences):
-                    f.write(sentence + '\n')
+                    #f.write(sentence + '\n')
                     if args.binary:
-                        f.write("score: "+str(1.0)+"  (")
-                        f.write("\t; ".join(extraction[:3]) + ')\n\n')
-                        #f.write("\t".join([sentence] + [str(1.0)] + extraction[:3]) + '\n')
+                        #f.write("score: "+str(1.0)+"  (")
+                        #f.write("\t; ".join(extraction[:3]) + ')\n\n')
+                        f.write("\t".join([sentence] + [str(1.0)] + extraction[:3]) + '\n')
                     else:
-                        f.write("score: "+str(confidence)+"  (")
-                        f.write("\t; ".join(extraction) + ')\n\n')
-                        #f.write("\t".join([sentence] + [str(confidence)] + extraction) + '\n')
+                        #f.write("score: "+str(confidence)+"  (")
+                        #f.write("\t; ".join(extraction) + ')\n\n')
+                        f.write("\t".join([sentence] + [str(confidence)] + extraction) + '\n')
     f.close()
     print("\nExtraction Done.\n")
 
